@@ -1,0 +1,506 @@
+\documentclass[10pt,a4paper]{article}
+% usepackages
+\usepackage[latin1]{inputenc}
+\usepackage[english]{babel}
+% math
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{latexsym}
+% formatting
+\usepackage{parskip}
+\usepackage{fullpage}
+% graphics
+\usepackage[pdftex]{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+%\usepackage[below,section]{placeins} % the one below is better for short assignments
+\usepackage{float} % provides H as float placement specifier
+% extras
+\usepackage[pdftex,a4paper,colorlinks=true,urlcolor=blue]{hyperref}
+\urlstyle{same}
+\usepackage{moreverb} %\verbatimtabinput{filename.py} preserves indentation
+\usepackage{hyperref}
+\usepackage{listings}
+%Numbering first level list roman (i,ii,iii) instead of arabic (1,2,3)
+% options are \roman \Roman \alph \Alph \arabic
+\renewcommand{\theenumi}{\roman{enumi}} 
+\renewcommand{\theenumii}{\roman{enumii}}
+% Also achieved with the enumerate package
+\usepackage{enumerate}
+\numberwithin{equation}{section}
+
+% author/title details
+\author{Musawenkosi Khulu (\href{mailto:musawenkosi@aims.ac.za}{musawenkosi@aims.ac.za})}
+% \title{Course Title: Assignment X}
+\title{Algebraic Methods}
+\begin{document}
+	\maketitle
+\section*{Assignment 1}
+1.
+i) We asked to show that $(\textbf{V}~,+~,.)$ is a linear space over $\mathbb{R}$, for $\mathbf{f}= f(x),~\mathbf{g}=g(x) \in~ \mathbf{V}$ ,and $\lambda\in ~\mathbb{R}$. I am going to start by proving it using the addition axioms. \\
+A1: $\mathbf{g},\mathbf{f} \in \mathbf{V},~\mathbf{g}+\mathbf{f} \in~\mathbf{V}$ by definition of subspace $\implies \mathbf{V}~$ is a subspace of $\mathbb{R}$. \\
+~\\
+A2: Proving addition commutative for any $\mathbf{g,f} \in \mathbf{V}$ \\
+$(\mathbf{g+f}) = f(x)+g(x)=g(x)+f(x)$ \\
+$\implies \mathbf{g+f}=\mathbf{f+g}$, thus vector addition is commutative on $\mathbf{V}$ by commutativity of + on $\mathbf{V}$. \\
+~\\
+A3: Proving addition associative for any $\mathbf{g,f,h} \ \in \mathbf{V}$
+\begin{align*}
+	\mathbf{(g+f)+h}&=[f(x)+g(x)]+h(x) \\
+	&=f(x)+[g(x)+h(x)]~,~ \forall~ x \in \mathbb{R} \\
+\mathbf{(g+f)+h}&=\mathbf{g+(f+h)} \\
+\end{align*}
+thus vector addition is associative on $\mathbf{V}$ by associativity of + on $\mathbf{V}$. \\
+~\\
+A4: Proving an additive identity exist for any $\mathbf{f} \ \in \mathbf{V}$
+\begin{align*}
+\hat{0}(x)=0~, \forall~ x~\in \mathbb{R} \\
+\mathbf{f+\hat{0}}&=f(x)+\hat{0}(x) \\
+&=f(x),~ \forall~x \in \mathbb{R} \\
+\mathbf{f+\hat{0}}&=\mathbf{f}
+\end{align*}
+thus $\exists~$ an additive identity exist for any $\mathbf{f} \ \in \mathbf{V}~ \therefore 0 \in \mathbf{V}$ is the additive identity. \\
+~\\
+A5: Proving existence of additive inverse, let $\mathbf{f}$ be an arbitrary function in $\mathbf{V}$. Then, a function $\mathbf{-f}$ defined by $(-f)(x) = -f(x) ~\forall x \in \mathbb{R}$
+\begin{align*}
+	 \mathbf{f + (-f)} &= f(x)+(-f)(x) \\
+	 &= f(x)- f(x) \\
+	 &= 0 = \hat{0}(x),~ \forall x \in \mathbb{R}. \\
+	\mathbf{f + (-f)} &= f(x)-f(x) \\
+	\mathbf{\hat{0}} &= \mathbf{f + (-f)} \\
+	\text{So, each}~\mathbf{f} \in \mathbf{V}\text{ has its additive inverse} -f \in \mathbf{V}.
+\end{align*}
+~\\
+ii) I am going to start by proving it using the multiplication axioms.\\
+M1: Proving closure under multiplication by a scalar $\lambda~$ i.e $\forall~ \lambda \in \mathbb{R},~\forall ~\mathbf{f} \in \mathbf{V},~ \lambda \mathbf{f} \in \mathbf{V}$ \\
+~\\
+M2: Proving left distributivity of multiplication
+over addition in $\mathbf{V}$. $\forall ~\lambda \in \mathbb{R},~\mathbf{f,g} \in\mathbf{V}$ \\
+\begin{align*}
+\lambda(\mathbf{f+g}) &= \lambda(f(x)+g(x)) \\ 
+&=\lambda f(x)+\lambda g(x) \\
+\lambda(\mathbf{f+g}) &=\lambda\mathbf{f}+\lambda\mathbf{g}
+\end{align*}
+So scalar $\lambda$ it can be distributed by left distributivity of multiplication in $\mathbf{V}$. \\
+~\\
+M3: Proving right distributivity of multiplication over addition in $\mathbf{V}$. $\forall ~\lambda,\mu \in \mathbb{R},\forall~\mathbf{f} \in\mathbf{V}$
+\begin{align*}
+(\lambda+\mu)\mathbf{f} &=(\lambda+\mu)f(x) \\
+&=\lambda f(x)+\mu f(x) \\
+&= \lambda\mathbf{f} +\mu \mathbf{f} 
+\end{align*}
+So scalars $\lambda,\mu~$can be distributed by right distributivity of multiplication over addition in $\mathbf{V}$. \\
+~\\
+M4: Proving associativity of multiplication in $\mathbf{V}$.$~\forall ~\lambda,\mu \in \mathbb{R},\forall~\mathbf{f} \in\mathbf{V}$. \\
+\begin{align*}
+	(\lambda\mu)\mathbf{f} &=(\lambda\mu)f(x) \\
+	&=\lambda(\mu f(x)) \\
+	&= \lambda(\mu \mathbf{f})
+\end{align*}
+So scalars $\lambda,\mu~$can be associated in multiplication by associativity of multiplication in $\mathbf{V}$. \\
+~\\
+M5: Proving a multiplicative identity denoted $1 \in\mathbb{R},~\forall~\mathbf{f} \in\mathbf{V}$ \\
+$1\mathbf{f}=1f(x)=f(x)$ \\
+$1\mathbf{f}=\mathbf{f}$ \\
+$\therefore 1~ \text{is an identity unity}~ \in\mathbf{V} ~$ by multiplicative identity.\\
+So this shows that $(\textbf{V}~,+~,.)$ is a linear space over $\mathbb{R}$. \\
+~\\
+2. Show that the additive inverse of each element in a linear space is unique. \\
+Suppose $w \text{and} w'$ are additive inverses of $v$, so that $v + w = 0 \text{and} v + w'= 0$. Then 
+\begin{align*}
+	w &= w + 0 \\
+	  &= w + (v + w) \\
+	  &= (w + v) + w' \\ 
+	  &= 0 + w'\\
+	  &= w' \\
+	  \text{Hence } w &= w' \text{ as desired.}
+\end{align*}
+Since the additive inverse of $v$ is unique as just shown. We define $w-v$ to mean $w + (-v)$. \\
+~\\
+3. (a) $\mathbf{S}=\{(x,y,z)|x-z=1\}; \mathbf{V} = \mathbb{R}^3 \text{ and } F =\mathbb{R}$ \\
+i) We start by showing if $\mathbf{S} \neq \varnothing$ then we can see $0-0 \neq 1$. This show that $\mathbf{S}~$ doesn't contain the vector $\hat{0}$ \\
+$\therefore \text{Set } \mathbf{S}~$ is not a subspace of a linear space $\mathbf{V}~$ over the given field $F$ \\
+b) $\mathbf{S}=\Big\{\begin{bmatrix}
+	a ~~~ b \\
+	c ~~~ d
+\end{bmatrix}|a=b\Big\}; \mathbf{V}=M_{2\times2}(\mathbb{R}) \text{ and } F= \mathbb{R}$ \\
+i)$0=\begin{bmatrix}
+		0 ~~~ 0 \\
+		0 ~~~ 0
+	\end{bmatrix}$
+$b=0,~ a=0~\text{ and } 0 \in \mathbf{S}, \mathbf{S} \text{ is a linear space.} \\ \implies \mathbf{S} \neq \varnothing$ \\
+ii) Now we going check closure under addition. $a_{1},a_{2} \in a \text{ and } b_{1},b_{2} \in b \\ v=\begin{bmatrix}
+		a_{1} ~~~ b_{1} \\
+		c_{1} ~~~ d_{1}
+	\end{bmatrix} \in \mathbf{S} \\ w=\begin{bmatrix}
+	a_{2} ~~~ b_{2} \\
+	c_{2} ~~~ d_{2}
+\end{bmatrix} \in \mathbf{S}$ \\
+$v+w=\begin{bmatrix}
+	a_{1}+a_{2} ~~~ b_{1}+b_{2} \\
+	c_{1}+c_{2} ~~~ d_{1}+d_{2}
+\end{bmatrix} \in \mathbf{S},~a_{1}+a_{2}=b_{1}+b_{2}$ \\
+We know $a_{1}+a_{2}=b_{1}+b_{2} \in \mathbf{V}$ because $\mathbf{V}~$ is a subspace. \\
+$u+w \in \mathbf{V},\mathbf{V}\text{ is closed under addition.}$
+iii) Let $\lambda \in \mathbb{R}, ~ u=\begin{bmatrix}
+		a ~~~ b \\
+		c ~~~ d
+	\end{bmatrix},~ \text{ since } u \in \mathbf{V} \text{ such that } a=b$ \\
+$\therefore \lambda u =\lambda \begin{bmatrix}
+		a ~~~ b \\
+		c ~~~ d
+	\end{bmatrix} = \begin{bmatrix}
+	\lambda a ~~~ \lambda b \\
+	\lambda c ~~~ \lambda d
+\end{bmatrix} \in \mathbf{V}$ \\
+$\text{So } \mathbf{V}$ is closed under scalar multiplication $\therefore \mathbf{V} \text{ is a subspace}$
+~\\
+4. Let $L$ be a mapping from $\mathbb{R}^3~ \text{to}~ \mathbb{R}^2$ defined by $L(x,y,z)=(3x,2y+z)$. Show that $L$ is linear. \\
+i) Let $\mathbf{x_1,x_2} \in \mathbb{R}^3 ,\mathbf{x_1} =\begin{bmatrix}
+		x_{1} \\
+		y_{1} \\
+		z_{1}
+	\end{bmatrix},\mathbf{x_2} =\begin{bmatrix}
+	x_{2} \\
+	y_{2} \\
+	z_{2}
+\end{bmatrix}$ \\
+\begin{align*}
+	L(\mathbf{x_1+x_2})&=L\begin{pmatrix}\begin{bmatrix}
+		x_{1} \\
+		y_{1} \\
+		z_{1}
+	\end{bmatrix} +L\begin{bmatrix}
+	x_{2} \\
+	y_{2} \\
+	z_{2}
+\end{bmatrix}\end{pmatrix} = L\begin{pmatrix}\begin{bmatrix}
+x_{1}+x_{2} \\
+y_{1}+y_{2} \\
+z_{1}+z_{2}
+\end{bmatrix}\end{pmatrix} \\
+\text{We know that } L\begin{bmatrix}
+	x \\
+	y \\
+	z
+\end{bmatrix}&=L\begin{bmatrix}
+	3x \\
+	2y+z
+\end{bmatrix} \text{we want to know }L(\mathbf{x_1+x_2}) \\
+	L(\mathbf{x_1+x_2})&=L\begin{bmatrix}
+	3(x_{1}+x_{2}) \\
+	2(y_{1}+y_{2})+(z_{1}+z_{2}) 
+\end{bmatrix} = L\begin{bmatrix}
+3x_{1}+3x_{2} \\
+2y_{1}+2y_{2}+z_{1}+z_{2}
+\end{bmatrix} = L\begin{bmatrix}
+3x_{1} \\
+2y_{1}+z_{1}
+\end{bmatrix} + L\begin{bmatrix}
+3x_{2} \\
+2y_{2}+z_{2}
+\end{bmatrix} \\
+L(\mathbf{x_1+x_2})&=L(\mathbf{x_1})+L(\mathbf{x_2})
+\end{align*}
+~\\
+ii) 
+\begin{align*}
+L(c\mathbf{x})&=\begin{pmatrix}c\begin{bmatrix}
+	x\\
+	y\\
+	z
+\end{bmatrix}\end{pmatrix} =L\begin{bmatrix}
+cx\\
+cy\\
+cz
+\end{bmatrix} \\ 
+&=\begin{bmatrix}
+	c3x \\
+	c2y+cz
+\end{bmatrix} = \begin{bmatrix}
+c(3x) \\
+c(2y+z)
+\end{bmatrix} \\
+&= c\begin{bmatrix}
+	(3x) \\
+	(2y+z)
+\end{bmatrix} \\
+L(c\mathbf{x})&=cL(\mathbf{x})
+\end{align*}
+5. Let $L$ be a mapping from $\mathbb{R}^4~ \text{to}~ \mathbb{R}^2$ defined by $L(z,y,z,w)=(xz,2yw)$. Show that $L$ is linear. \\
+To show a function is not a linear transformation, we just need to find an example that demonstrates the failure of one of the properties. \\
+So I am going to use $L(c\mathbf{x})=cL(\mathbf{x})$ \\
+\begin{align*}
+	L(x,y,z,w)&=(xz,2yw) \\
+	&\text{Let } c = 2 \text{ and } \mathbf{x}=(3,4,5,6)\\
+	L(2(3,4,5,6))&=L(6,8,10,12)=(60,192) \\
+\text{and } 
+	2L(3,4,5,6)&=2(15,48)=(30,96) \\
+	\therefore L(c\mathbf{x}) & \neq cL(\mathbf{x}) 
+\end{align*}
+So this shows that $L$ is not linear. \\
+~\\
+6. Let $L: \mathbf{V} \longrightarrow \mathbf{U}$ be a linear mapping and let $\mathbf{v_1,v_2,...,v_n \in V}.~ \mathbf{V,U} \text{ are linear space over } F$ \\
+Proof: If $L(\mathbf{v}_{1}),L(\mathbf{v}_{2}),L(\mathbf{v}_{3}),...,L(\mathbf{v}_{n})~$ are linearly independent, suppose $c_{1}\mathbf{v}_{1}+c_{2}\mathbf{v}_{2}+c_{3}\mathbf{v}_{3}+...+c_{n}\mathbf{v}_{n}=0,c_{i} \in F$ \\
+We have $L(c_{1}\mathbf{v}_{1}+c_{2}\mathbf{v}_{2}+c_{3}\mathbf{v}_{3}+...+c_{n}\mathbf{v}_{n})=L(0)=0,~0 \in U$ \\
+$\implies c_{1}L(\mathbf{v}_{1})+c_{2}L(\mathbf{v}_{2})+c_{3}L(\mathbf{v}_{3})+...+c_{n}L(\mathbf{v}_{n})=0, 0 \in U$ \\
+$\implies c_{1}=c_{2}=c_{3}=...=c_{n}=0, c_{i} \in F \\ \because L(\mathbf{v}_{1}),L(\mathbf{v}_{2}),L(\mathbf{v}_{3}),...,L(\mathbf{v}_{n})~ \text{ are linearly independent.}$\\
+~\\
+7.Prove the following: $\mathbf{S}$ is a subspace of a linear space $\mathbf{V}$ over a field $F$ if and only if: \\
+i) We know $\mathbf{S}$ is subspace meaning it contain zero, $0 \in \mathbf{S}~\therefore \mathbf{S} $ is not empty. \\
+ii) Since $v,w \in \mathbf{S} \text{ and } \lambda, \mu \in F$, $\exists~ s_{1} \in \mathbf{S}~ \text{such that } v=s_{1} \text{ and } s_{2} \in \mathbf{S}~ \text{where } s_{2}=w$. Now we have $\lambda v=\lambda s_{1} \in \mathbf{S} \text{ and } \mu w = \mu s_{2} \in \mathbf{S} $ for all $ v,w \in \mathbf{S}$ \\
+$\therefore ~ \lambda s_{1}+\mu s_{2}= \lambda v + \mu w \in \mathbf{S}$ \\
+ We asked to show that $(\textbf{S}~,+~,.)$ is a linear space over $F$,I am going to start by proving it using the addition axioms. \\
+A1: $v,w \in \mathbf{S},~v+w \in~\mathbf{S}$ by definition of subspace $\implies \mathbf{S}~$ is a subspace of $F$. \\
+~\\
+A2: Proving addition commutative for any $v,w \in \mathbf{S}$ \\
+$(v+w) = w+v=v+w$ \\
+$\implies v+w=w+v$, thus vector addition is commutative on $\mathbf{S}$ by commutativity of + on $\mathbf{S}$. \\
+~\\
+A3: Proving addition associative for any $v,w,h \ \in \mathbf{S}$
+\begin{align*}
+	(v+w)+h&=[v+w]+h \\
+	&=w+[v+h]\\
+	(v+w)+h&=v+(w+h) \\
+\end{align*}
+thus vector addition is associative on $\mathbf{S}$ by associativity of + on $\mathbf{S}$. \\
+~\\
+A4: Proving an additive identity exist for any $w \ \in F$
+\begin{align*}
+	\hat{0}=0\\
+	w+\hat{0}&=w+\hat{0} \\
+	&=w\\
+	w+\hat{0}&=w
+\end{align*}
+thus $\exists~$ an additive identity exist for any $w \ \in \mathbf{S}~ \therefore 0$ is the additive identity. \\
+~\\
+A5: Proving existence of additive inverse, let $w$ be an arbitrary vector in $\mathbf{S}$.
+\begin{align*}
+	w + (-w) &= w- w \\
+	&= 0 = \hat{0}\\
+	\hat{0} &= w + (-w) \\
+	\text{So, each } w \in \mathbf{S}\text{ has its additive inverse} -w \in \mathbf{S}.
+\end{align*}
+~\\
+ii) Now, I am going to start by proving it using the multiplication axioms.\\
+M1: Proving closure under multiplication by a scalar $\lambda~$ i.e $\forall~ \lambda \in F,~\forall w \in \mathbf{S},~ \lambda f \in \mathbf{S}$ \\
+~\\
+M2: Proving left distributivity of multiplication
+over addition in $\mathbf{S}$. $\forall ~\lambda \in F,~w,v \in\mathbf{S}$ \\
+\begin{align*}
+	\lambda(w+v) &= \lambda w+\lambda v \\
+	\lambda(w+v) &=\lambda w+\lambda v
+\end{align*}
+So scalar $\lambda$ it can be distributed by left distributivity of multiplication in $\mathbf{S}$. \\
+~\\
+M3: Proving right distributivity of multiplication over addition in $\mathbf{S}$. $\forall ~\lambda,\mu \in F,\forall~w \in\mathbf{S}$
+\begin{align*}
+	(\lambda+\mu)w &=(\lambda+\mu)w \\
+	&=\lambda w+\mu w 
+\end{align*}
+So scalars $\lambda,\mu~$can be distributed by right distributivity of multiplication over addition in $\mathbf{S}$. \\
+~\\
+M4: Proving associativity of multiplication in $\mathbf{S}$.$~\forall ~\lambda,\mu \in F,\forall~ w \in\mathbf{S}$. \\
+\begin{align*}
+	(\lambda\mu)w &=(\lambda\mu)w \\
+	&=\lambda(\mu w) \\
+	&= \lambda(\mu w)
+\end{align*}
+So scalars $\lambda,\mu~$can be associated in multiplication by associativity of multiplication in $\mathbf{S}$. \\
+~\\
+M5: Proving a multiplicative identity denoted $1 \in F,~\forall~w \in\mathbf{S}$ \\
+$1w=w$ \\
+$\therefore 1~ \text{is an identity unity}~ \in\mathbf{S} ~$ by multiplicative identity.\\
+So this shows that $(\textbf{S}~,+~,.)$ is a linear space over $F$. \\
+~\\
+********************************End*************************************
+\section*{Assignment 2}
+1.
+Let $\mathbf{S} \text{ and } \mathbf{T}~$ be subspaces of a linear space $\mathbf{V}$ over a field $F$. Is $\mathbf{S} \cup \mathbf{T}$ a subspace of $\mathbf{V}$? \\
+We are going to assume that $\mathbf{S} \text{ and } \mathbf{T}$ are subsets of a linear space $\mathbf{V}$. \\
+i) Since $0 \in \mathbf{S} and 0 \in \mathbf{T}$ as they're both subspaces, $0 \in \mathbf{S} \cup \mathbf{T} \\ \therefore \mathbf{S,V} \neq \varnothing$ \\
+ii) In normal circumstance we will have $v+w \in \mathbf{S} \cup \mathbf{T}, \text{ then } v +w \text{ must be in either } \mathbf{S } \text{ or } \mathbf{ T}$(or both).Then since $\mathbf{S }$ is a subspace, $v \text{ and } w$ must both be in $\mathbf{S}$. But then $v \text{ and } w$ are both in $\mathbf{S}\cup \mathbf{T}$ also, so $\mathbf{S} \cup \mathbf{T}$ is closed under addition. Similarly, if $v + w$ is in $\mathbf{T}$, then both
+$v \text{ and } w$ are they're both in $\mathbf{S}\cup \mathbf{T}$. We know that this not true because we can not really tell that if the vectors are in the subspace. We should have started with a union of two vectors and then add them. In this case I began with the sum which is an mistake. This is not true that if $v+w$ is in the some subspace $\mathbf{S} \text{ and } \mathbf{T}$ means $v \text{ and }w$ must be in the union in subspace. $ \therefore$ is not closed under addition and $\mathbf{S} \cup \mathbf{T}$ is not a subspace of $\mathbf{V}$. \\
+~\\
+2.
+a)To show that $\mathbf{S}$ is a basis for $\mathbb{R}$, first we need to prove that $\mathbf{v_1,v_2,v_3}$ are linearly independent. So let $c_{1}v_{1}+c_{2}v_{2}+c_{3}v_{3}=0$ and we need to prove that $c_{1}=c_{2}=c_{3}=0$. Linear combination of $c_{i},v_{i},~ i \in \mathbb{R}$ will give us the following system of linear equations: \\
+$c_{1}(1,0,0)+c_{2}(2,2,0)+c_{3}(3,3,3)=(0,0,0)$
+\begin{align}
+c_{1}+2c_{2}+3c_{3}=0 \\
+2c_{2}+3c_{3}=0 \\
+3c_{3}=0
+\end{align} \\
+from equation 0.3 we can clearly see that $c_{3}=0$, then \\
+$2c_{2}+3 \times (0) = 0 \\ c_{2}=0$ \\
+Then after that from equation 0.1 we get the following \\
+$c_{1}+2\times (0)+3\times(0) = 0 \\ c_{1}=0$ \\
+So we have shown that $c_{1}=c_{2}=c_{3}=0$ and proved that $v_{1},v_{2},v_{3}$ are linearly independent. \\
+Now we need to show that $v_{1},v_{2},v_{3}$ spans $\mathbb{R}^3$, let $\mathbf{v}=(x_{1},x_{2},x_{3})$ be a vector in $\mathbb{R}^3$, that means we need to show that we can find $c_{1},c_{2},c_{3}$ such that $c_{1}v_{1}+c_{2}v_{2}+c_{3}v_{3}=v=(x_{1},x_{2},x_{3})$ \\
+The above equation gives us the following system of linear equations:\\
+\begin{align*}
+	c_{1}+2c_{2}+3c_{3}=x_{1} \\
+	2c_{2}+3c_{3}=x_{2} \\
+	3c_{3}=x_{3}
+\end{align*} \\
+These equations can be represented as a following matrix: \\
+$\begin{bmatrix}
+	1 ~~~ 2 ~~~ 3 \\
+	0 ~~~ 2 ~~~ 3 \\
+	0 ~~~ 0 ~~~ 3
+\end{bmatrix} \begin{bmatrix}
+c_{1} \\
+c_{2} \\
+c_{3}
+\end{bmatrix}=\begin{bmatrix}
+x_{1} \\
+x_{2} \\
+x_{3}
+\end{bmatrix}$ \\
+$\text{A}=\begin{bmatrix}
+	1 ~~~ 2 ~~~ 3 \\
+	0 ~~~ 2 ~~~ 3 \\
+	0 ~~~ 0 ~~~ 3
+\end{bmatrix}$ has an inverse $\text{A}^{-1}=\begin{bmatrix}
+1 &&-1&&0 \\
+0 && -\frac{1}{2}&&-\frac{1}{2} \\
+0 &&0&&\frac{1}{3}
+\end{bmatrix}$ \\
+$\begin{bmatrix}
+	c_{1} \\
+	c_{2} \\
+	c_{3}
+\end{bmatrix}=\text{A}^{-1}\begin{bmatrix}
+x_{1} \\
+x_{2} \\
+x_{3}
+\end{bmatrix}$ \\
+So each vector $(x_{1},x_{2},x_{3})$ are in the span $(v_{1},v_{2},v_{3})$ which means they form a basis of $\mathbb{R}^3$. \\
+b) $x_{1}\left(
+\begin{array}{c}
+	1 \\
+	0 \\
+	0
+\end{array}
+\right)+x_{2}\left(
+\begin{array}{c}
+	2 \\
+	2 \\
+	0
+\end{array}
+\right)+x_{3}\left(
+\begin{array}{c}
+	3 \\
+	3 \\
+	3
+\end{array}
+\right)=\left(
+\begin{array}{c}
+	2 \\
+	-1 \\
+	3
+\end{array}
+\right)$ \\
+The above linear combination will give the following equations \\
+\begin{align*}
+	x_{1}+2x_{2}+3x_{3}=& 2 \\
+	2x_{2}+3x_{3}=& -1 \\
+	3x_{3}=& 3
+\end{align*} \\
+Solving the equation will give us: \\ $x_{3}=1, \\ 2x_{2}+3(1)=-1 \\ x_{2}=-2, \\ x_{1}+2x_{2}+3x_{3}=2 \\ x_{1}+2(-2)+3(1)=2 \\ x_{1}=3$ \\
+$\therefore [v]_{S}=\left(
+\begin{array}{c}
+	3 \\
+   -2 \\
+	1
+\end{array}
+\right)$
+~\\
+c) $x_{1}\left(
+\begin{array}{c}
+	1 \\
+	0 \\
+	0
+\end{array}
+\right)+x_{2}\left(
+\begin{array}{c}
+	0 \\
+	1 \\
+	0
+\end{array}
+\right)+x_{3}\left(
+\begin{array}{c}
+	0 \\
+	0 \\
+	1
+\end{array}
+\right)=\left(
+\begin{array}{c}
+	2 \\
+	-1 \\
+	3
+\end{array}
+\right)$ \\
+The above linear combination will just return the $\mathbf{v}=(2,-1,3)$ which means $[v]_{B}=\left(
+\begin{array}{c}
+	2 \\
+	-1 \\
+	3
+\end{array}
+\right)$ \\
+d) if you look at $\mathbf{B=\{u_{1},u_{2},u_{3}\}}$ we can quickly see that it is an identity matrix. To find coordinate matrix can be shown by extracting from the equation below: \\
+ \begin{align*}
+ 	\mathbf{{v}_{1}=u_{1}+2u_{2}+3u_{3}} \\
+ 	 \mathbf{{v}_{2}=2u_{2}+3u_{3}}\\
+ 	\mathbf{{v}_{3}=3u_{3}}
+ \end{align*} \\
+So $[v_{1}]_{B}=\left(
+\begin{array}{c}
+	1 \\
+	0 \\
+	0
+\end{array}\right),[v_{2}]_{B}=\left(
+\begin{array}{c}
+2 \\
+2 \\
+0
+\end{array}
+\right),[v_{3}]_{B}=\left(
+\begin{array}{c}
+	3 \\
+	3 \\
+	3
+\end{array}
+\right)$ \\
+Thus the transition matrix from $\mathbf{S \text{ to } B}$ is given by \\
+$\text{P}=\begin{bmatrix}
+	1 ~~~ 2 ~~~ 3 \\
+	0 ~~~ 2 ~~~ 3 \\
+	0 ~~~ 0 ~~~ 3
+\end{bmatrix}$ \\
+~\\
+3. A set of elements $\{\mathbf{v_{1},v_{2},v_{3}}\}$ in a linear space $\mathbf{V}$ is a basis for $\mathbf{V}$ if it is linearly independent and span $\mathbf{V}$. So in this case we need to show that $\{\mathbf{u_{1},u_{2},u_{3}}\}$ is a basis, where  $\mathbf{u_{1}=v_{1},u_{2}=v_{1}+v_{2},u_{3}=v_{1}+v_{2}+v_{3}}$ \\
+So showing linear independency: \\
+Suppose $\alpha_{1}u_{1}+\alpha_{2}u_{2}+\alpha_{3}u_{3}=0$ now after substitution we have \\ $\alpha_{1}\mathbf{v_{1}}+\alpha_{2}(\mathbf{v_{1}+v_{2}})+\alpha_{3}(\mathbf{v_{1}+v_{2}+v_{3}})=0$ and after doing some simple arithmetic we have the simplified equation \\
+$(\alpha_{1}+\alpha_{2}+\alpha_{3})\mathbf{v_{1}}+(\alpha_{2}+\alpha_{3})\mathbf{v_{2}}+\alpha_{3}\mathbf{v_{3}}=0$ \\
+$\text{Since } \mathbf{(v_1,v_2,v_3)} \text{ is a basis, we find order }\alpha_{1}=\alpha_{2}=\alpha_{3}=0$ \\ 
+for any $\mathbf{v}$, there is a solution to $\alpha_{1}\mathbf{v_{1}}+\alpha_{2}(\mathbf{v_{1}+v_{2}})+\alpha_{3}(\mathbf{v_{1}+v_{2}+v_{3}})=\mathbf{v}$ ,therefore, for any
+arbitrary $\mathbf{v}$, we can write $\alpha_{1}\mathbf{v_{1}}+\alpha_{2}(\mathbf{v_{1}+v_{2}})+\alpha_{3}(\mathbf{v_{1}+v_{2}+v_{3}})=\mathbf{v}
+\text{ so } \{\mathbf{u_{1},u_{2},u_{3}}\}~ spans~ \mathbf{V}$ \\
+$\implies \{\mathbf{u_{1},u_{2},u_{3}}\} \text{ is also a basis for a linear space } \mathbf{V}.$ \\
+~\\
+4. This here below is the adjacency matrix of graph G: \\
+$\text{A=}\begin{bmatrix}
+	0 ~~ 1 ~~ 0 ~~ 0 \\
+	1 ~~ 0 ~~ 1 ~~ 1 \\
+	0 ~~ 1 ~~ 0 ~~ 1 \\
+	0 ~~ 1 ~~ 1 ~~ 0
+\end{bmatrix}$ \\
+To find P I used SageMath using the code below \\
+\lstinputlisting[language=Python]{Assignment 1 linear algebra.py}
+~ \\
+5. In this case we have four couples meaning in total we have 8 peoples. Since the couple can not shake each other therefore the maximum number each couple can shake is 6. Since seven different where given my answer depends on how many hands other couples shakes hands. Logically if Mr and Mrs Smith meet every couple they each shake 6 combined but one can shake 3.\\ 
+a) 3 \\
+b) 3
+\end{document}
